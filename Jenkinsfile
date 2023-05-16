@@ -48,9 +48,9 @@ spec:
     }
   }
   
-  stage('Deploy') { 
+ /* stage('Deploy') { 
             steps {
                 // 
             }
-}
+} */
 }
