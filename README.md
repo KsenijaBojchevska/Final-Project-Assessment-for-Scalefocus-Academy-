@@ -20,12 +20,15 @@ Requirement for the Project Assessment:
 3. Create a Jenkins pipeline that checks if wp namespace exists, if it doesn’t then it creates one.
    Checks if WordPress exists, if it doesn’t then it installs the chart.
    
-   First I create New Item, and named ksenija.The project was created with Pipeline.In the Pipeline Definition I choose scripted pipeline so I connected
-    my project with my github repo and in the GitHub repo I created Jenkinsfile. In the Jenkinsfile I put the code for the pipeline and it check if there
+   First,in my repository I pushed the downoladed repo from  Bitnami chart: https://github.com/bitnami/charts/tree/main/bitnami/wordpress.
+   
+   After in Jenkins I create New Item, and named ksenija.The project was created with Pipeline.In the Pipeline Definition I choose scripted pipeline so
+    I  connected my project with my github repo and in the GitHub repo I created Jenkinsfile. In the Jenkinsfile I put the code for the pipeline and it 
+    check if there
     is a namespace wp.
-     And if there is not for now it print namespace not found.
+    And if there is not for now it print namespace not found.
      
-     I have this console output
+    I have this console output
  
  
  Started by user Ksenija Bojchevska
@@ -93,6 +96,37 @@ WordPress not found
 [Pipeline] // node
 [Pipeline] End of Pipeline
 Finished: SUCCESS
+
+Now in the script that I checked if I can find WordPress, in else statement I put
+            else{
+            sh "helm install my-release oci://registry-1.docker.io/bitnamicharts/wordpress"
+             }
+ but I have this output :
+ 
+ + helm install my-release oci://registry-1.docker.io/bitnamicharts/wordpress
+Pulled: registry-1.docker.io/bitnamicharts/wordpress:16.1.2
+Digest: sha256:85dd56b733152b3465145ff5479bbe7f74456a61aaacafc183983002c71ca588
+Error: INSTALLATION FAILED: Kubernetes cluster unreachable: <html><head><meta http-equiv='refresh' content='1;url=/login?from=%2Fversion'/><script>window.location.replace('/login?from=%2Fversion');</script></head><body style='background-color:white; color:white;'>
+
+
+Authentication required
+<!--
+-->
+
+</body></html>
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 1
+Finished: FAILURE
+
+
 
 
 
