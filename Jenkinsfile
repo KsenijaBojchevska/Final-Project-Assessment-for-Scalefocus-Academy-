@@ -14,7 +14,7 @@ pipeline {
        
            }
         
-        script {
+          script {
             def WordPress = false
             if (params.WordPress != null){
              WordPress = params.WordPress
@@ -28,4 +28,9 @@ pipeline {
       }
     }
   }
+  
+  stage('Deploy') { 
+            steps {
+                // 
+            }
 }
