@@ -9,7 +9,7 @@ if (params.namespace != null){
     namespace = params.namespace
     println "namespace=${namespace}"
 }else{
-    println "namespace"
+    println "namespace not found"
     }
        
         }
