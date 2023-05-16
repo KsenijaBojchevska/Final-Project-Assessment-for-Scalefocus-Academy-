@@ -74,6 +74,28 @@ namespace not found
 [Pipeline] End of Pipeline
 Finished: SUCCESS.
 
+Also for this task ( Checks if WordPress exists, if it doesn’t then it installs the chart.),in the stage('check wp and build') I added another script to check if I can find WordPress,if is not for now it print WordPress is not found.
+
+namespace not found
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] script
+[Pipeline] {
+[Pipeline] echo
+WordPress not found
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
+
+
+
 
 
 
