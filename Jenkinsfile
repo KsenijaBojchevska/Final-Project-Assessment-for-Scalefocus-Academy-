@@ -1,6 +1,5 @@
 pipeline {
-   agent any {
-       
+  agent any
   stages {
     stage('check wp and build') {
       steps {
@@ -15,7 +14,7 @@ pipeline {
        
            }
         
-          script {
+        script {
             def WordPress = false
             if (params.WordPress != null){
              WordPress = params.WordPress
@@ -29,11 +28,4 @@ pipeline {
       }
     }
   }
-  
-  stage('Deploy') { 
-            steps {
-                // 
-            }
-} 
-
-   }
+}
