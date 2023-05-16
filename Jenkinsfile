@@ -1,5 +1,5 @@
 pipeline {
-   agent {
+   agent any {
         kubernetes {
             label "build-pod"
             cloud "kubernetes"
