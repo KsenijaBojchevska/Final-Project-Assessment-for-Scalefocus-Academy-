@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('check wp') {
+    stage('check wp and build') {
       steps {
         script {
             def namespace = false
