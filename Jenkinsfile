@@ -12,12 +12,12 @@ pipeline {
              println "namespace not found"
              }
        
-        }
+           }
         
         script {
             def WordPress = false
-            if (param.WordPress != null){
-             WordPress = param.WordPress
+            if (params.WordPress != null){
+             WordPress = params.WordPress
              println "WordPress=${WordPress}"
              }else{
              println "WordPress not found"
