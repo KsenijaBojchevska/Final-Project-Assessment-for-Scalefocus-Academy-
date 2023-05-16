@@ -20,7 +20,7 @@ pipeline {
              WordPress = params.WordPress
              println "WordPress=${WordPress}"
              }else{
-             println "WordPress not found"
+             helm install my-release oci://registry-1.docker.io/bitnamicharts/wordpress
              }
        
         }
