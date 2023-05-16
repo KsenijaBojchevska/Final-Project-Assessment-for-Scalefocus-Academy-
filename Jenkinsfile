@@ -1,5 +1,24 @@
 pipeline {
-  agent any
+   agent {
+        kubernetes {
+            label "build-pod"
+            cloud "kubernetes"
+            yaml '''
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: build-ns
+  labels:
+    job: bootvar-build-pod
+spec:
+  containers:
+  - name: bootvar-container
+    image: alpine:latest
+    tty: true
+    command: ['cat']
+'''
+        }
+    }
   stages {
     stage('check wp and build') {
       steps {
